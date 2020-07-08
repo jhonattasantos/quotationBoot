@@ -29,10 +29,7 @@ public class QuotationController {
 
     @RequestMapping(method = RequestMethod.POST)
     public QuotationDto toCreate(@RequestBody QuotationDto quotationDto) throws Exception {
-
-        Quotation quotation = new Quotation(quotationDto.name, quotationDto.createdBy, new Date());
-        _repository.save(quotation);
-
+        _repository.save(quotationDto.quotation());
         return quotationDto;
         //return _repository.save(quotation);
     }
